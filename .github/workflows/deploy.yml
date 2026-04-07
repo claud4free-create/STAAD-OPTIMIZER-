@@ -22,16 +22,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
-        
+          # Removed cache: npm because you don't have a package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install # Changed from 'npm ci' to 'npm install'
 
       - name: Build
         run: npm run build
