@@ -1,0 +1,380 @@
+// SteelOpt — STAAD BS5950 Optimizer
+// Steel section database: BS5950 / EN 10365 / ASTM sections
+
+export interface SectionData {
+  m: number;    // mass kg/m
+  Zx?: number;  // elastic section modulus cm³
+  Ix?: number;  // second moment of area cm⁴
+  A?: number;   // cross-sectional area cm²
+  type: string;
+}
+
+export const DB: Record<string, SectionData> = {
+  // UB Universal Beams
+  'UB127X76X13':  {m:13,  Zx:84.2,  Ix:473,   type:'UB'},
+  'UB152X89X16':  {m:16,  Zx:123,   Ix:834,   type:'UB'},
+  'UB178X102X19': {m:19,  Zx:171,   Ix:1360,  type:'UB'},
+  'UB203X102X23': {m:23,  Zx:234,   Ix:2100,  type:'UB'},
+  'UB203X133X25': {m:25,  Zx:258,   Ix:2340,  type:'UB'},
+  'UB203X133X30': {m:30,  Zx:314,   Ix:2900,  type:'UB'},
+  'UB254X102X22': {m:22,  Zx:257,   Ix:2840,  type:'UB'},
+  'UB254X102X25': {m:25,  Zx:307,   Ix:3410,  type:'UB'},
+  'UB254X102X28': {m:28,  Zx:354,   Ix:4000,  type:'UB'},
+  'UB254X146X31': {m:31,  Zx:393,   Ix:4410,  type:'UB'},
+  'UB254X146X37': {m:37,  Zx:480,   Ix:5475,  type:'UB'},
+  'UB254X146X43': {m:43,  Zx:568,   Ix:6540,  type:'UB'},
+  'UB305X102X25': {m:25,  Zx:336,   Ix:4460,  type:'UB'},
+  'UB305X102X28': {m:28,  Zx:403,   Ix:5360,  type:'UB'},
+  'UB305X102X33': {m:33,  Zx:481,   Ix:6500,  type:'UB'},
+  'UB305X165X40': {m:40,  Zx:623,   Ix:8500,  type:'UB'},
+  'UB356X127X33': {m:33,  Zx:536,   Ix:8200,  type:'UB'},
+  'UB356X171X45': {m:45,  Zx:775,   Ix:12100, type:'UB'},
+  'UB356X171X51': {m:51,  Zx:896,   Ix:14100, type:'UB'},
+  'UB356X171X57': {m:57,  Zx:1010,  Ix:16000, type:'UB'},
+  'UB356X171X67': {m:67,  Zx:1210,  Ix:19500, type:'UB'},
+  'UB406X178X54': {m:54,  Zx:1060,  Ix:18700, type:'UB'},
+  'UB406X178X67': {m:67,  Zx:1350,  Ix:24300, type:'UB'},
+  'UB406X178X74': {m:74,  Zx:1500,  Ix:27300, type:'UB'},
+  'UB406X178X85': {m:85,  Zx:1710,  Ix:30200, type:'UB'},
+  'UB457X152X52': {m:52,  Zx:1100,  Ix:21400, type:'UB'},
+  'UB457X191X67': {m:67,  Zx:1470,  Ix:29400, type:'UB'},
+  'UB457X191X74': {m:74,  Zx:1620,  Ix:33300, type:'UB'},
+  'UB457X191X82': {m:82,  Zx:1830,  Ix:36600, type:'UB'},
+  'UB457X191X89': {m:89,  Zx:2010,  Ix:41000, type:'UB'},
+  'UB457X191X98': {m:98,  Zx:2230,  Ix:45800, type:'UB'},
+  'UB533X210X82': {m:82,  Zx:2060,  Ix:47500, type:'UB'},
+  'UB610X229X101':{m:101, Zx:2880,  Ix:75700, type:'UB'},
+  'UB610X229X125':{m:125, Zx:3670,  Ix:98500, type:'UB'},
+  'UB686X254X125':{m:125, Zx:3990,  Ix:118000,type:'UB'},
+  'UB686X254X140':{m:140, Zx:4550,  Ix:136000,type:'UB'},
+  'UB762X267X147':{m:147, Zx:5180,  Ix:183000,type:'UB'},
+  'UB762X267X173':{m:173, Zx:6190,  Ix:223000,type:'UB'},
+  'UB838X292X176':{m:176, Zx:6810,  Ix:288000,type:'UB'},
+  'UB838X292X194':{m:194, Zx:7610,  Ix:327000,type:'UB'},
+  'UB914X305X201':{m:201, Zx:8880,  Ix:401000,type:'UB'},
+  'UB914X305X224':{m:224, Zx:10000, Ix:455000,type:'UB'},
+  'UB914X419X343':{m:343, Zx:16200, Ix:813000,type:'UB'},
+  // UC Universal Columns
+  'UC152X152X23': {m:23,  Zx:182,   Ix:1250,  type:'UC'},
+  'UC152X152X30': {m:30,  Zx:248,   Ix:1740,  type:'UC'},
+  'UC152X152X37': {m:37,  Zx:309,   Ix:2220,  type:'UC'},
+  'UC203X203X46': {m:46,  Zx:497,   Ix:4570,  type:'UC'},
+  'UC203X203X52': {m:52,  Zx:567,   Ix:5260,  type:'UC'},
+  'UC203X203X60': {m:60,  Zx:656,   Ix:6120,  type:'UC'},
+  'UC203X203X71': {m:71,  Zx:799,   Ix:7620,  type:'UC'},
+  'UC254X254X73': {m:73,  Zx:992,   Ix:11400, type:'UC'},
+  'UC254X254X89': {m:89,  Zx:1230,  Ix:14300, type:'UC'},
+  'UC305X305X97': {m:97,  Zx:1590,  Ix:22200, type:'UC'},
+  'UC305X305X118':{m:118, Zx:1970,  Ix:27600, type:'UC'},
+  'UC356X368X129':{m:129, Zx:2560,  Ix:40200, type:'UC'},
+  'UC356X368X153':{m:153, Zx:3080,  Ix:48500, type:'UC'},
+  'UC356X368X177':{m:177, Zx:3610,  Ix:57300, type:'UC'},
+  'UC356X406X235':{m:235, Zx:5140,  Ix:82300, type:'UC'},
+  'UC356X406X287':{m:287, Zx:6430,  Ix:105000,type:'UC'},
+  'UC356X406X340':{m:340, Zx:7810,  Ix:129000,type:'UC'},
+  'UC356X406X393':{m:393, Zx:9240,  Ix:155000,type:'UC'},
+  'UC356X406X467':{m:467, Zx:11300, Ix:194000,type:'UC'},
+  'UC356X406X551':{m:551, Zx:13700, Ix:241000,type:'UC'},
+  'UC356X406X634':{m:634, Zx:16200, Ix:291000,type:'UC'},
+  // PFC Parallel Flange Channels
+  'PFC100X50X10': {m:10.2, Zx:46.7,  Ix:209,   type:'PFC'},
+  'PFC125X65X15': {m:14.8, Zx:81.9,  Ix:482,   type:'PFC'},
+  'PFC150X75X18': {m:17.9, Zx:117,   Ix:860,   type:'PFC'},
+  'PFC180X75X20': {m:20.3, Zx:154,   Ix:1350,  type:'PFC'},
+  'PFC200X75X23': {m:23.4, Zx:191,   Ix:1910,  type:'PFC'},
+  'PFC230X75X26': {m:25.7, Zx:232,   Ix:2850,  type:'PFC'},
+  'PFC260X75X28': {m:27.6, Zx:274,   Ix:4010,  type:'PFC'},
+  'PFC300X100X46':{m:45.5, Zx:626,   Ix:8140,  type:'PFC'},
+  'PFC380X100X54':{m:54.0, Zx:877,   Ix:15000, type:'PFC'},
+  'PFC430X100X64':{m:64.4, Zx:1150,  Ix:23500, type:'PFC'},
+  // EA Equal Angles
+  'EA40X40X4':    {m:2.42,  A:3.08,  type:'L'},
+  'EA50X50X5':    {m:3.77,  A:4.80,  type:'L'},
+  'EA60X60X6':    {m:5.42,  A:6.91,  type:'L'},
+  'EA70X70X7':    {m:7.38,  A:9.40,  type:'L'},
+  'EA80X80X8':    {m:9.63,  A:12.3,  type:'L'},
+  'EA90X90X9':    {m:12.2,  A:15.5,  type:'L'},
+  'EA100X100X10': {m:15.0,  A:19.1,  type:'L'},
+  'EA120X120X12': {m:21.6,  A:27.5,  type:'L'},
+  'EA150X150X15': {m:33.8,  A:43.0,  type:'L'},
+  'EA200X200X20': {m:59.9,  A:76.3,  type:'L'},
+  // UA Unequal Angles
+  'UA100X75X8':   {m:10.6,  A:13.5,  type:'L'},
+  'UA125X75X10':  {m:15.0,  A:19.1,  type:'L'},
+  'UA150X90X12':  {m:21.6,  A:27.5,  type:'L'},
+  'UA200X100X15': {m:33.7,  A:43.0,  type:'L'},
+  // SHS Square Hollow Sections
+  'SHS50X50X3':   {m:4.39,  Zx:8.0,  Ix:20.0,  type:'SHS'},
+  'SHS60X60X4':   {m:6.97,  Zx:14.0, Ix:42.0,  type:'SHS'},
+  'SHS80X80X5':   {m:11.7,  Zx:31.0, Ix:124,   type:'SHS'},
+  'SHS100X100X6': {m:17.8,  Zx:58.0, Ix:290,   type:'SHS'},
+  'SHS120X120X8': {m:27.9,  Zx:108,  Ix:648,   type:'SHS'},
+  'SHS150X150X10':{m:43.9,  Zx:210,  Ix:1575,  type:'SHS'},
+  'SHS200X200X12':{m:71.1,  Zx:440,  Ix:4400,  type:'SHS'},
+  // RHS Rectangular Hollow Sections
+  'RHS100X50X4':  {m:8.85,  Zx:24.0, Ix:120,   type:'RHS'},
+  'RHS120X60X5':  {m:13.3,  Zx:42.0, Ix:252,   type:'RHS'},
+  'RHS150X100X6': {m:22.5,  Zx:98.0, Ix:735,   type:'RHS'},
+  'RHS200X100X8': {m:35.4,  Zx:180,  Ix:1800,  type:'RHS'},
+  'RHS250X150X10':{m:59.6,  Zx:410,  Ix:5125,  type:'RHS'},
+  'RHS300X200X12':{m:89.9,  Zx:780,  Ix:11700, type:'RHS'},
+  // CHS Circular Hollow Sections
+  'CHS21.3X3.2':  {m:1.43,  Zx:0.8,  Ix:0.8,   type:'CHS'},
+  'CHS26.9X3.2':  {m:1.87,  Zx:1.4,  Ix:1.9,   type:'CHS'},
+  'CHS33.7X3.2':  {m:2.41,  Zx:2.4,  Ix:4.0,   type:'CHS'},
+  'CHS42.4X3.2':  {m:3.09,  Zx:3.9,  Ix:8.2,   type:'CHS'},
+  'CHS48.3X3.2':  {m:3.56,  Zx:5.1,  Ix:12.3,  type:'CHS'},
+  'CHS60.3X3.6':  {m:5.03,  Zx:8.5,  Ix:25.7,  type:'CHS'},
+  'CHS76.1X3.6':  {m:6.44,  Zx:14.0, Ix:53.1,  type:'CHS'},
+  'CHS88.9X4.0':  {m:8.38,  Zx:21.5, Ix:95.4,  type:'CHS'},
+  'CHS114.3X5.0': {m:13.5,  Zx:47.3, Ix:270,   type:'CHS'},
+  'CHS139.7X5.0': {m:16.6,  Zx:71.9, Ix:502,   type:'CHS'},
+  'CHS168.3X5.0': {m:20.1,  Zx:106,  Ix:889,   type:'CHS'},
+  'CHS193.7X5.4': {m:25.1,  Zx:151,  Ix:1460,  type:'CHS'},
+  'CHS219.1X6.3': {m:33.1,  Zx:228,  Ix:2490,  type:'CHS'},
+  'CHS244.5X6.3': {m:37.0,  Zx:286,  Ix:3500,  type:'CHS'},
+  'CHS273.0X6.3': {m:41.4,  Zx:361,  Ix:4930,  type:'CHS'},
+  'CHS323.9X6.3': {m:49.3,  Zx:512,  Ix:8290,  type:'CHS'},
+  'CHS355.6X8.0': {m:68.6,  Zx:781,  Ix:13900, type:'CHS'},
+  'CHS406.4X10.0':{m:97.8,  Zx:1240, Ix:25300, type:'CHS'},
+  'CHS457.0X10.0':{m:110,   Zx:1590, Ix:36300, type:'CHS'},
+  'CHS508.0X10.0':{m:123,   Zx:1970, Ix:50000, type:'CHS'},
+  // ASB Asymmetric Beams
+  'ASB280X190X81':{m:81,    Zx:1150, Ix:16100, type:'ASB'},
+  'ASB300X200X95':{m:95,    Zx:1420, Ix:21300, type:'ASB'},
+  // RSJ Rolled Steel Joists
+  'RSJ102X44X7':  {m:7.5,   Zx:31.5, Ix:161,   type:'RSJ'},
+  'RSJ127X76X13': {m:13.0,  Zx:73.0, Ix:463,   type:'RSJ'},
+  'RSJ152X127X37':{m:37.0,  Zx:263,  Ix:2000,  type:'RSJ'},
+  'RSJ203X152X52':{m:52.0,  Zx:508,  Ix:5150,  type:'RSJ'},
+  // IPE European I-beams
+  'IPE100': {m:8.1,   Zx:34.2,  Ix:171,   type:'IPE'},
+  'IPE120': {m:10.4,  Zx:54.7,  Ix:318,   type:'IPE'},
+  'IPE140': {m:12.9,  Zx:77.3,  Ix:541,   type:'IPE'},
+  'IPE160': {m:15.8,  Zx:109,   Ix:869,   type:'IPE'},
+  'IPE180': {m:18.8,  Zx:146,   Ix:1320,  type:'IPE'},
+  'IPE200': {m:22.4,  Zx:194,   Ix:1940,  type:'IPE'},
+  'IPE220': {m:26.2,  Zx:252,   Ix:2770,  type:'IPE'},
+  'IPE240': {m:30.7,  Zx:324,   Ix:3890,  type:'IPE'},
+  'IPE270': {m:36.1,  Zx:429,   Ix:5790,  type:'IPE'},
+  'IPE300': {m:42.2,  Zx:557,   Ix:8360,  type:'IPE'},
+  'IPE330': {m:49.1,  Zx:713,   Ix:11770, type:'IPE'},
+  'IPE360': {m:57.1,  Zx:904,   Ix:16270, type:'IPE'},
+  'IPE400': {m:66.3,  Zx:1160,  Ix:23130, type:'IPE'},
+  'IPE450': {m:77.6,  Zx:1500,  Ix:33740, type:'IPE'},
+  'IPE500': {m:90.7,  Zx:1930,  Ix:48200, type:'IPE'},
+  'IPE550': {m:106,   Zx:2440,  Ix:67120, type:'IPE'},
+  'IPE600': {m:122,   Zx:3070,  Ix:92080, type:'IPE'},
+  // HEA European wide-flange beams (Light)
+  'HEA100': {m:16.7,  Zx:72.8,  Ix:349,   type:'HEA'},
+  'HEA120': {m:19.9,  Zx:106,   Ix:606,   type:'HEA'},
+  'HEA140': {m:24.7,  Zx:155,   Ix:1030,  type:'HEA'},
+  'HEA160': {m:30.4,  Zx:220,   Ix:1670,  type:'HEA'},
+  'HEA180': {m:35.5,  Zx:294,   Ix:2510,  type:'HEA'},
+  'HEA200': {m:42.3,  Zx:389,   Ix:3690,  type:'HEA'},
+  'HEA220': {m:50.5,  Zx:515,   Ix:5410,  type:'HEA'},
+  'HEA240': {m:60.3,  Zx:675,   Ix:7760,  type:'HEA'},
+  'HEA260': {m:68.2,  Zx:836,   Ix:10450, type:'HEA'},
+  'HEA280': {m:76.4,  Zx:1010,  Ix:13670, type:'HEA'},
+  'HEA300': {m:88.3,  Zx:1260,  Ix:18260, type:'HEA'},
+  'HEA320': {m:97.6,  Zx:1480,  Ix:22930, type:'HEA'},
+  'HEA340': {m:105,   Zx:1680,  Ix:27690, type:'HEA'},
+  'HEA360': {m:112,   Zx:1890,  Ix:33090, type:'HEA'},
+  'HEA400': {m:125,   Zx:2310,  Ix:45070, type:'HEA'},
+  'HEA450': {m:140,   Zx:2900,  Ix:63720, type:'HEA'},
+  'HEA500': {m:155,   Zx:3550,  Ix:86970, type:'HEA'},
+  // HEB European wide-flange beams (Normal)
+  'HEB100': {m:20.4,  Zx:89.9,  Ix:450,   type:'HEB'},
+  'HEB120': {m:26.7,  Zx:144,   Ix:864,   type:'HEB'},
+  'HEB140': {m:33.7,  Zx:216,   Ix:1510,  type:'HEB'},
+  'HEB160': {m:42.6,  Zx:311,   Ix:2490,  type:'HEB'},
+  'HEB180': {m:51.2,  Zx:426,   Ix:3830,  type:'HEB'},
+  'HEB200': {m:61.3,  Zx:570,   Ix:5700,  type:'HEB'},
+  'HEB220': {m:71.5,  Zx:736,   Ix:8090,  type:'HEB'},
+  'HEB240': {m:83.2,  Zx:938,   Ix:11260, type:'HEB'},
+  'HEB260': {m:93.0,  Zx:1150,  Ix:14920, type:'HEB'},
+  'HEB280': {m:103,   Zx:1380,  Ix:19270, type:'HEB'},
+  'HEB300': {m:117,   Zx:1680,  Ix:25170, type:'HEB'},
+  // HEM European wide-flange beams (Heavy)
+  'HEM100': {m:41.8,  Zx:190,   Ix:1140,  type:'HEM'},
+  'HEM120': {m:52.1,  Zx:288,   Ix:2020,  type:'HEM'},
+  'HEM140': {m:63.2,  Zx:411,   Ix:3290,  type:'HEM'},
+  'HEM160': {m:76.2,  Zx:566,   Ix:5100,  type:'HEM'},
+  'HEM180': {m:88.9,  Zx:748,   Ix:7480,  type:'HEM'},
+  'HEM200': {m:103,   Zx:953,   Ix:10640, type:'HEM'},
+  // UNP European Standard Channels
+  'UNP80':  {m:8.6,   Zx:26.5,  Ix:106,   type:'UNP'},
+  'UNP100': {m:10.6,  Zx:41.2,  Ix:206,   type:'UNP'},
+  'UNP120': {m:13.4,  Zx:60.7,  Ix:364,   type:'UNP'},
+  'UNP140': {m:16.0,  Zx:86.4,  Ix:605,   type:'UNP'},
+  'UNP160': {m:18.8,  Zx:116,   Ix:925,   type:'UNP'},
+  'UNP180': {m:22.0,  Zx:150,   Ix:1350,  type:'UNP'},
+  'UNP200': {m:25.3,  Zx:191,   Ix:1910,  type:'UNP'},
+  'UNP220': {m:29.4,  Zx:245,   Ix:2690,  type:'UNP'},
+  'UNP240': {m:33.2,  Zx:300,   Ix:3600,  type:'UNP'},
+  'UNP260': {m:37.9,  Zx:371,   Ix:4820,  type:'UNP'},
+  'UNP300': {m:46.2,  Zx:535,   Ix:8030,  type:'UNP'},
+  // US W-Shapes (W14)
+  'W14X22': {m:32.7,  Zx:577,   Ix:8280,  type:'W'},
+  'W14X26': {m:38.7,  Zx:692,   Ix:10200, type:'W'},
+  'W14X30': {m:44.6,  Zx:808,   Ix:12100, type:'W'},
+  'W14X34': {m:50.6,  Zx:944,   Ix:14100, type:'W'},
+  // US W-Shapes (W12)
+  'W12X14': {m:20.8,  Zx:285,   Ix:3690,  type:'W'},
+  'W12X16': {m:23.8,  Zx:336,   Ix:4290,  type:'W'},
+  'W12X19': {m:28.3,  Zx:405,   Ix:5410,  type:'W'},
+  'W12X22': {m:32.7,  Zx:475,   Ix:6500,  type:'W'},
+  // US HSS Square Hollow Sections
+  'HSS4X4X1/4': {m:18.2, Zx:69.2,  Ix:134,  type:'HSS'},
+  'HSS4X4X3/8': {m:26.1, Zx:94.4,  Ix:183,  type:'HSS'},
+  'HSS6X6X1/4': {m:28.3, Zx:167,   Ix:504,  type:'HSS'},
+  'HSS6X6X3/8': {m:41.1, Zx:233,   Ix:703,  type:'HSS'},
+  // US Angles (L)
+  'L4X4X1/4': {m:9.8,   A:12.3,  type:'L'},
+  'L4X4X3/8': {m:14.6,  A:18.4,  type:'L'},
+  'L5X5X3/8': {m:18.3,  A:23.2,  type:'L'},
+  // PIP Circular Hollow Sections (Dutch/STAAD naming: PIPdddww = diameter×wall)
+  'PIP213.2':  {m:1.43,  Zx:0.8,   Ix:0.8,   type:'CHS'},  // 21.3 × 3.2
+  'PIP263.2':  {m:1.87,  Zx:1.4,   Ix:1.9,   type:'CHS'},  // 26.3 × 3.2
+  'PIP333.2':  {m:2.41,  Zx:2.4,   Ix:4.0,   type:'CHS'},  // 33.3 × 3.2
+  'PIP423.2':  {m:3.09,  Zx:3.9,   Ix:8.2,   type:'CHS'},  // 42.3 × 3.2
+  'PIP483.2':  {m:3.56,  Zx:5.1,   Ix:12.3,  type:'CHS'},  // 48 × 3.2
+  'PIP602.5':  {m:3.56,  Zx:8.2,   Ix:24.7,  type:'CHS'},  // 60 × 2.5
+  'PIP603.6':  {m:5.03,  Zx:8.5,   Ix:25.7,  type:'CHS'},  // 60 × 3.6
+  'PIP762.5':  {m:4.52,  Zx:12.1,  Ix:46.0,  type:'CHS'},  // 76 × 2.5
+  'PIP763.6':  {m:6.44,  Zx:14.0,  Ix:53.1,  type:'CHS'},  // 76 × 3.6
+  'PIP882.5':  {m:5.26,  Zx:18.0,  Ix:79.3,  type:'CHS'},  // 88 × 2.5
+  'PIP884.0':  {m:8.38,  Zx:21.5,  Ix:95.4,  type:'CHS'},  // 88 × 4.0
+  'PIP1143.0': {m:8.08,  Zx:28.3,  Ix:162,   type:'CHS'},  // 114 × 3.0
+  'PIP1143.6': {m:9.83,  Zx:35.1,  Ix:201,   type:'CHS'},  // 114 × 3.6
+  'PIP1145.0': {m:13.5,  Zx:47.3,  Ix:270,   type:'CHS'},  // 114 × 5.0
+  'PIP1146.3': {m:16.8,  Zx:58.1,  Ix:332,   type:'CHS'},  // 114 × 6.3
+  'PIP1148.0': {m:21.0,  Zx:70.8,  Ix:405,   type:'CHS'},  // 114 × 8.0
+  'PIP1394.0': {m:13.4,  Zx:79.4,  Ix:551,   type:'CHS'},  // 139 × 4.0
+  'PIP1395.0': {m:16.6,  Zx:71.9,  Ix:502,   type:'CHS'},  // 139 × 5.0
+  'PIP1396.3': {m:20.7,  Zx:88.8,  Ix:621,   type:'CHS'},  // 139 × 6.3
+  'PIP1398.0': {m:26.0,  Zx:109,   Ix:764,   type:'CHS'},  // 139 × 8.0
+  'PIP13910.0':{m:32.0,  Zx:131,   Ix:916,   type:'CHS'},  // 139 × 10.0
+  'PIP1685.0': {m:20.1,  Zx:106,   Ix:889,   type:'CHS'},  // 168 × 5.0
+  'PIP1686.3': {m:25.2,  Zx:131,   Ix:1110,  type:'CHS'},  // 168 × 6.3
+  'PIP1688.0': {m:31.6,  Zx:163,   Ix:1370,  type:'CHS'},  // 168 × 8.0
+  'PIP16810.0':{m:39.0,  Zx:198,   Ix:1660,  type:'CHS'},  // 168 × 10.0
+  'PIP16812.5':{m:48.0,  Zx:239,   Ix:2010,  type:'CHS'},  // 168 × 12.5
+  'PIP1935.4': {m:25.1,  Zx:151,   Ix:1460,  type:'CHS'},  // 193 × 5.4
+  'PIP1936.3': {m:29.1,  Zx:175,   Ix:1690,  type:'CHS'},  // 193 × 6.3
+  'PIP1938.0': {m:36.6,  Zx:217,   Ix:2100,  type:'CHS'},  // 193 × 8.0
+  'PIP19310.0':{m:45.3,  Zx:265,   Ix:2560,  type:'CHS'},  // 193 × 10.0
+  'PIP2196.3': {m:33.1,  Zx:228,   Ix:2490,  type:'CHS'},  // 219 × 6.3
+  'PIP2198.0': {m:41.7,  Zx:284,   Ix:3110,  type:'CHS'},  // 219 × 8.0
+  'PIP21910.0':{m:51.6,  Zx:347,   Ix:3800,  type:'CHS'},  // 219 × 10.0
+  'PIP21912.5':{m:63.7,  Zx:421,   Ix:4610,  type:'CHS'},  // 219 × 12.5
+  'PIP21916.0':{m:80.1,  Zx:519,   Ix:5690,  type:'CHS'},  // 219 × 16.0
+  'PIP2446.3': {m:37.0,  Zx:286,   Ix:3500,  type:'CHS'},  // 244 × 6.3
+  'PIP2448.0': {m:46.7,  Zx:357,   Ix:4370,  type:'CHS'},  // 244 × 8.0
+  'PIP24410.0':{m:57.8,  Zx:438,   Ix:5360,  type:'CHS'},  // 244 × 10.0
+  'PIP24412.5':{m:71.5,  Zx:534,   Ix:6530,  type:'CHS'},  // 244 × 12.5
+  'PIP2736.3': {m:41.4,  Zx:361,   Ix:4930,  type:'CHS'},  // 273 × 6.3
+  'PIP2738.0': {m:52.3,  Zx:454,   Ix:6200,  type:'CHS'},  // 273 × 8.0
+  'PIP27310.0':{m:64.9,  Zx:559,   Ix:7630,  type:'CHS'},  // 273 × 10.0
+  'PIP27312.5':{m:80.3,  Zx:683,   Ix:9320,  type:'CHS'},  // 273 × 12.5
+  'PIP27316.0':{m:101,   Zx:845,   Ix:11500, type:'CHS'},  // 273 × 16.0
+  'PIP3236.3': {m:49.3,  Zx:512,   Ix:8290,  type:'CHS'},  // 323 × 6.3
+  'PIP3238.0': {m:62.3,  Zx:645,   Ix:10400, type:'CHS'},  // 323 × 8.0
+  'PIP32310.0':{m:77.4,  Zx:796,   Ix:12900, type:'CHS'},  // 323 × 10.0
+  'PIP32312.5':{m:96.0,  Zx:979,   Ix:15900, type:'CHS'},  // 323 × 12.5
+  'PIP32316.0':{m:121,   Zx:1220,  Ix:19700, type:'CHS'},  // 323 × 16.0
+  'PIP3558.0': {m:68.6,  Zx:781,   Ix:13900, type:'CHS'},  // 355 × 8.0
+  'PIP40610.0':{m:97.8,  Zx:1240,  Ix:25300, type:'CHS'},  // 406 × 10.0
+  'PIP45710.0':{m:110,   Zx:1590,  Ix:36300, type:'CHS'},  // 457 × 10.0
+  'PIP50810.0':{m:123,   Zx:1970,  Ix:50000, type:'CHS'},  // 508 × 10.0
+  // Round Bars / Tension Rods (Dutch code RD)
+  'RD6.5': {m:0.261, A:0.332, type:'ROD'},
+  'RD8':   {m:0.395, A:0.503, type:'ROD'},
+  'RD9.5': {m:0.557, A:0.709, type:'ROD'},
+  'RD10':  {m:0.617, A:0.785, type:'ROD'},
+  'RD12':  {m:0.888, A:1.131, type:'ROD'},
+  'RD14':  {m:1.208, A:1.539, type:'ROD'},
+  'RD16':  {m:1.578, A:2.011, type:'ROD'},
+};
+
+export const LENGTHS: Record<number, number> = {
+  25:4, 26:4, 27:4, 28:4, 29:4, 30:4, 31:4, 32:4, 33:4, 34:4, 35:4, 36:4, 37:4,
+  38:6, 39:6, 40:6, 41:6, 42:6, 43:6, 44:6, 45:6, 46:6, 47:6,
+  48:6, 49:6, 50:6, 51:6, 52:6, 53:6, 54:6, 55:6,
+};
+
+export const RAW: [number, string, number, boolean, string, number, number, number, string, number][] = [
+  [25, 'UC203X203X46', 0.434, true,  'UC203X203X46', 0.434,  0.00,  7.59,  'BS-4.9',       113],
+  [26, 'UC203X203X46', 0.472, true,  'UC203X203X46', 0.472,  21.88, 2.16,  'BS-4.8.2.2',   113],
+  [27, 'UC203X203X46', 0.278, true,  'UC203X203X46', 0.278,  20.71, 1.43,  'BS-4.8.2.2',   113],
+  [28, 'UC203X203X46', 0.185, true,  'UC203X203X46', 0.185,  0.00,  9.69,  'BS-4.9',       113],
+  [29, 'UC203X203X46', 0.469, true,  'UC203X203X46', 0.469,  2.25,  6.09,  'ANNEX I.1',    109],
+  [30, 'UC203X203X46', 0.457, true,  'UC203X203X46', 0.457,  19.79, 4.95,  'BS-4.8.2.2',   114],
+  [31, 'UC203X203X46', 0.153, true,  'UC203X203X46', 0.153,  47.23, -4.40, 'BS-4.8.2.2',   113],
+  [32, 'UC203X203X46', 0.235, true,  'UC203X203X46', 0.235,  11.50, 26.16, 'BS-4.3.6',     116],
+  [33, 'UC203X203X46', 0.462, true,  'UC203X203X46', 0.462,  0.00,  6.67,  'BS-4.9',       114],
+  [34, 'UC203X203X46', 0.297, true,  'UC203X203X46', 0.297,  0.00,  9.00,  'BS-4.9',       114],
+  [35, 'UC203X203X46', 0.270, true,  'UC203X203X46', 0.270,  12.70, 30.09, 'BS-4.3.6',     116],
+  [36, 'UC203X203X46', 0.298, true,  'UC203X203X46', 0.298,  3.09,  8.71,  'ANNEX I.1',    109],
+  [37, 'UC203X203X46', 0.238, true,  'UC203X203X46', 0.238,  0.00,  9.30,  'BS-4.9',       114],
+  [38, 'UB254X146X37', 0.297, true,  'UB254X146X37', 0.297,  0.00,  13.51, 'BS-4.9',       113],
+  [39, 'UB254X146X37', 0.292, true,  'UB254X146X37', 0.292,  0.00,  12.60, 'BS-4.9',       113],
+  [40, 'UB254X146X37', 0.295, true,  'UB254X146X37', 0.295,  0.00,  15.06, 'BS-4.9',       103],
+  [41, 'UB178X102X19', 0.161, true,  'UB178X102X19', 0.161,  5.85,  1.01,  'BS-4.8.3.3.2', 102],
+  [42, 'UB178X102X19', 0.118, true,  'UB178X102X19', 0.118,  2.62,  1.01,  'ANNEX I.1',    108],
+  [43, 'UB178X102X19', 0.144, true,  'UB178X102X19', 0.144,  6.82,  1.01,  'ANNEX I.1',    108],
+  [44, 'UB178X102X19', 0.210, true,  'UB178X102X19', 0.210,  14.65, 0.00,  'BS-4.7 (C)',   102],
+  [45, 'UB254X146X37', 0.344, true,  'UB254X146X37', 0.344,  0.00,  17.53, 'BS-4.9',       103],
+  [46, 'UB254X146X37', 0.525, true,  'UB254X146X37', 0.525,  0.00,  23.90, 'BS-4.9',       113],
+  [47, 'UB254X146X37', 0.620, true,  'UB254X146X37', 0.620,  0.00,  31.69, 'BS-4.9',       115],
+  [48, 'UB178X102X19', 0.150, true,  'UB178X102X19', 0.150,  0.66,  1.01,  'ANNEX I.1',    108],
+  [49, 'UB178X102X19', 0.149, true,  'UB178X102X19', 0.149,  4.73,  1.01,  'ANNEX I.1',    109],
+  [50, 'UB178X102X19', 0.128, true,  'UB178X102X19', 0.128,  8.89,  0.00,  'BS-4.7 (C)',   102],
+  [51, 'UB254X146X37', 0.374, true,  'UB254X146X37', 0.374,  0.00,  17.16, 'BS-4.9',       113],
+  [52, 'UB254X146X37', 0.576, true,  'UB254X146X37', 0.576,  0.00,  29.33, 'BS-4.9',       115],
+  [53, 'UB178X102X19', 0.108, true,  'UB178X102X19', 0.108,  4.39,  1.01,  'ANNEX I.1',    109],
+  [54, 'UB178X102X19', 0.287, true,  'UB178X102X19', 0.287,  14.64, 1.01,  'BS-4.8.3.3.2', 102],
+  [55, 'UB254X146X37', 0.295, true,  'UB254X146X37', 0.295,  0.00,  15.06, 'BS-4.9',       115],
+];
+
+export const SERIES: Record<string, string[]> = {
+  // FIX: UB305X165X40 and UB356X127X33 added to their correct serial groups
+  UB_102:   ['UB127X76X13','UB152X89X16','UB178X102X19','UB203X102X23','UB254X102X22','UB254X102X25','UB254X102X28','UB305X102X25','UB305X102X28','UB305X102X33'],
+  UB_133:   ['UB203X133X25','UB203X133X30'],
+  UB_146:   ['UB254X146X31','UB254X146X37','UB254X146X43'],
+  UB_165:   ['UB305X165X40'],
+  UB_171:   ['UB356X171X45','UB356X171X51','UB356X171X57','UB356X171X67'],
+  UB_127:   ['UB356X127X33'],
+  UB_178:   ['UB406X178X54','UB406X178X67','UB406X178X74','UB406X178X85'],
+  UB_LARGE: ['UB457X152X52','UB457X191X67','UB457X191X74','UB457X191X82','UB457X191X89','UB457X191X98','UB533X210X82','UB610X229X101','UB610X229X125','UB686X254X125','UB686X254X140','UB762X267X147','UB762X267X173','UB838X292X176','UB838X292X194','UB914X305X201','UB914X305X224','UB914X419X343'],
+  UC_152:   ['UC152X152X23','UC152X152X30','UC152X152X37'],
+  UC_203:   ['UC203X203X46','UC203X203X52','UC203X203X60','UC203X203X71'],
+  UC_254:   ['UC254X254X73','UC254X254X89'],
+  UC_305:   ['UC305X305X97','UC305X305X118'],
+  UC_356:   ['UC356X368X129','UC356X368X153','UC356X368X177','UC356X406X235','UC356X406X287','UC356X406X340','UC356X406X393','UC356X406X467','UC356X406X551','UC356X406X634'],
+  PFC:      ['PFC100X50X10','PFC125X65X15','PFC150X75X18','PFC180X75X20','PFC200X75X23','PFC230X75X26','PFC260X75X28','PFC300X100X46','PFC380X100X54','PFC430X100X64'],
+  EA:       ['EA40X40X4','EA50X50X5','EA60X60X6','EA70X70X7','EA80X80X8','EA90X90X9','EA100X100X10','EA120X120X12','EA150X150X15','EA200X200X20'],
+  UA:       ['UA100X75X8','UA125X75X10','UA150X90X12','UA200X100X15'],
+  SHS:      ['SHS50X50X3','SHS60X60X4','SHS80X80X5','SHS100X100X6','SHS120X120X8','SHS150X150X10','SHS200X200X12'],
+  RHS:      ['RHS100X50X4','RHS120X60X5','RHS150X100X6','RHS200X100X8','RHS250X150X10','RHS300X200X12'],
+  CHS:      ['CHS21.3X3.2','CHS26.9X3.2','CHS33.7X3.2','CHS42.4X3.2','CHS48.3X3.2','CHS60.3X3.6','CHS76.1X3.6','CHS88.9X4.0','CHS114.3X5.0','CHS139.7X5.0','CHS168.3X5.0','CHS193.7X5.4','CHS219.1X6.3','CHS244.5X6.3','CHS273.0X6.3','CHS323.9X6.3','CHS355.6X8.0','CHS406.4X10.0','CHS457.0X10.0','CHS508.0X10.0'],
+  ASB:      ['ASB280X190X81','ASB300X200X95'],
+  RSJ:      ['RSJ102X44X7','RSJ127X76X13','RSJ152X127X37','RSJ203X152X52'],
+  PIP:      ['PIP213.2','PIP263.2','PIP333.2','PIP423.2','PIP483.2','PIP602.5','PIP603.6','PIP762.5','PIP763.6','PIP882.5','PIP884.0','PIP1143.0','PIP1143.6','PIP1145.0','PIP1146.3','PIP1148.0','PIP1394.0','PIP1395.0','PIP1396.3','PIP1398.0','PIP13910.0','PIP1685.0','PIP1686.3','PIP1688.0','PIP16810.0','PIP16812.5','PIP1935.4','PIP1936.3','PIP1938.0','PIP19310.0','PIP2196.3','PIP2198.0','PIP21910.0','PIP21912.5','PIP21916.0','PIP2446.3','PIP2448.0','PIP24410.0','PIP24412.5','PIP2736.3','PIP2738.0','PIP27310.0','PIP27312.5','PIP27316.0','PIP3236.3','PIP3238.0','PIP32310.0','PIP32312.5','PIP32316.0','PIP3558.0','PIP40610.0','PIP45710.0','PIP50810.0'],
+  IPE:      ['IPE100','IPE120','IPE140','IPE160','IPE180','IPE200','IPE220','IPE240','IPE270','IPE300','IPE330','IPE360','IPE400','IPE450','IPE500','IPE550','IPE600'],
+  HEA:      ['HEA100','HEA120','HEA140','HEA160','HEA180','HEA200','HEA220','HEA240','HEA260','HEA280','HEA300','HEA320','HEA340','HEA360','HEA400','HEA450','HEA500'],
+  HEB:      ['HEB100','HEB120','HEB140','HEB160','HEB180','HEB200','HEB220','HEB240','HEB260','HEB280','HEB300'],
+  HEM:      ['HEM100','HEM120','HEM140','HEM160','HEM180','HEM200'],
+  UNP:      ['UNP80','UNP100','UNP120','UNP140','UNP160','UNP180','UNP200','UNP220','UNP240','UNP260','UNP300'],
+  W14:      ['W14X22','W14X26','W14X30','W14X34'],
+  W12:      ['W12X14','W12X16','W12X19','W12X22'],
+  HSS_SQ:   ['HSS4X4X1/4','HSS4X4X3/8','HSS6X6X1/4','HSS6X6X3/8'],
+  L_ANGLE:  ['L4X4X1/4','L4X4X3/8','L5X5X3/8'],
+  ROD:      ['RD6.5','RD8','RD9.5','RD10','RD12','RD14','RD16'],
+};
+
+export const ORIG_TAKEOFF = [
+  { sec: 'UC203X203X46', len: 52.00, wkN: 23.448 },
+  { sec: 'UB254X146X37', len: 54.00, wkN: 19.580 },
+  { sec: 'UB178X102X19', len: 54.00, wkN: 10.080 },
+];

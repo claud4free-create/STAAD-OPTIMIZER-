@@ -1,0 +1,5 @@
+{
+  "name": "SteelOpt — STAAD BS5950 Optimizer",
+  "description": "A STAAD BS5950-1:2000 output optimizer for steel structures, helping you find the lightest sections within target utilization bands.",
+  "version": "1.0.0"
+}
