@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 // ⚠️  Change this to match your GitHub repository name exactly
 // e.g. github.com/yourname/steelopt-bs5950  →  repoName = 'steelopt-bs5950'
-const repoName = 'steelopt-bs5950';
+const repoName = 'STAAD-OPTIMIZER-';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
