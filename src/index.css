@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-head: "Barlow Condensed", sans-serif;
+
+  --color-bg: #07090e;
+  --color-s1: #0d1018;
+  --color-s2: #111520;
+  --color-s3: #161c28;
+  --color-s4: #1b2233;
+  --color-t1: #dde4f2;
+  --color-t2: #7a8899;
+  --color-t3: #384556;
+  --color-gold: #f0c040;
+  --color-gold2: #ffd966;
+  --color-grn: #27ae60;
+  --color-amb: #e67e22;
+  --color-red: #e74c3c;
+  --color-blu: #2980b9;
+  --color-cyn: #16a085;
+  --color-pur: #8e44ad;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-t1 font-sans text-[13px] overflow-hidden h-screen;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply font-head font-bold tracking-[0.5px] px-[18px] py-[7px] rounded-md cursor-pointer transition-all duration-150 border-none;
+  }
+  .btn-gold {
+    @apply bg-gold text-[#07090e] hover:bg-gold2 hover:-translate-y-[1px];
+  }
+  .btn-ghost {
+    @apply bg-transparent text-t2 border border-white/5 hover:text-t1 hover:border-white/15;
+  }
+  .btn-sm {
+    @apply px-3 py-1 text-[11px];
+  }
+  .btn-s3 {
+    @apply bg-s3 text-t1 hover:bg-s4;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.16);
+  border-radius: 2px;
+}
+
