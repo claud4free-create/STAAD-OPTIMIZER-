@@ -524,40 +524,34 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen bg-bg text-t1 font-sans">
       {/* HEADER */}
-      <header className="h-[52px] bg-s1 border-b border-white/10 flex items-center px-5 gap-3.5 shrink-0">
-        <div className="font-head text-[22px] font-extrabold tracking-[0.5px]">
-          Steel<span className="text-gold">Opt</span>
-        </div>
-        <div className="font-mono text-[10px] px-2.5 py-0.5 rounded bg-gold/10 border border-gold/25 text-gold">
-          🇬🇧 BS5950-1:2000
-        </div>
-        <div className="font-mono text-[10px] px-2.5 py-0.5 rounded bg-s3 border border-white/10 text-t2">
-          {fileName}
-        </div>
-        <div className="ml-auto flex gap-2 items-center">
-          {selectedIds.size > 0 && (
-            <div className="flex items-center gap-2 mr-4 pr-4 border-r border-white/10">
-              <span className="font-mono text-[11px] text-gold font-bold">{selectedIds.size} selected</span>
-              <button className="btn btn-ghost btn-sm text-t3 hover:text-t1" onClick={clearSelection}>Clear</button>
-            </div>
-          )}
-          <button className={`btn btn-sm flex items-center gap-2 border border-white/10 ${activeTab === 'comparison' ? 'bg-gold text-s1' : 'btn-ghost'}`} onClick={() => setActiveTab(v => v === 'comparison' ? 'suggestions' : 'comparison')}>
-            <ArrowLeftRight className="w-3 h-3" /> Before & After
-          </button>
-          <button className={`btn btn-sm flex items-center gap-2 border border-white/10 ${showOriginal ? 'bg-gold text-s1' : 'btn-ghost'}`} onClick={() => setShowOriginal(!showOriginal)}>
-            {showOriginal ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
-            {showOriginal ? 'Hide Original' : 'Show Original'}
-          </button>
-          <button className="btn btn-ghost btn-sm flex items-center gap-2" onClick={exportCSV}>
-            <Download className="w-3 h-3" /> Export CSV
-          </button>
-          <button className="btn btn-s3 btn-sm flex items-center gap-2 border border-white/10" onClick={applyMaxUC}>
-            <Zap className="w-3 h-3 text-gold" /> Max Utilization
-          </button>
-          <button className="btn btn-gold btn-sm flex items-center gap-2" onClick={applyAll}>
-            <Check className="w-3 h-3" /> Apply Best Sections
-          </button>
-        </div>
+<header className="min-h-[52px] h-auto bg-s1 border-b border-white/10 flex flex-col md:flex-row items-center px-5 py-3 md:py-0 gap-3.5 shrink-0">
+  <div className="flex items-center justify-between w-full md:w-auto">
+    <div className="font-head text-[22px] font-extrabold tracking-[0.5px]">
+      Steel<span className="text-gold">Opt</span>
+    </div>
+    {/* Show a condensed version of the code on mobile */}
+    <div className="md:hidden font-mono text-[10px] px-2 py-0.5 rounded bg-gold/10 border border-gold/25 text-gold">
+      BS5950
+    </div>
+  </div>
+
+  <div className="flex flex-wrap gap-2 items-center w-full md:w-auto md:ml-auto justify-center md:justify-end">
+    {selectedIds.size > 0 && (
+      <div className="flex items-center gap-2 mr-2 pr-2 border-r border-white/10">
+        <span className="font-mono text-[11px] text-gold font-bold">{selectedIds.size}</span>
+        <button className="btn btn-ghost btn-sm text-[10px]" onClick={clearSelection}>Clear</button>
+      </div>
+    )}
+    
+    <button className="btn btn-ghost btn-sm flex items-center gap-2 border border-white/10" onClick={exportCSV}>
+      <Download className="w-3 h-3" /> <span className="hidden sm:inline">Export CSV</span>
+    </button>
+    
+    <button className="btn btn-gold btn-sm flex items-center gap-2" onClick={applyAll}>
+      <Check className="w-3 h-3" /> <span className="hidden sm:inline">Apply Best Sections</span>
+    </button>
+  </div>
+</header>
       </header>
 
       <div className="flex flex-1 overflow-hidden">
